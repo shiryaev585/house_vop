@@ -1,0 +1,17 @@
+@mixin centered($pos) {
+    display: flex;
+    align-items: center;
+    justify-content: $pos;
+}
+
+%numberPosition {
+    position: absolute;
+    font-family: 'Playfair Display';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 400px;
+    line-height: 533px;
+    text-align: center;
+    color: #FFFFFF;
+    opacity: 0.02;
+}
