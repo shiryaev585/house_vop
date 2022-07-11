@@ -67,7 +67,7 @@ export default {
     }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
     .modal__content {
         width: 80%;
         padding-top: 45%;

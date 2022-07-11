@@ -198,6 +198,7 @@ export default {
 
             &-left {
                 margin-bottom: 50px;
+                margin-right: 0;
             }
         }
 
