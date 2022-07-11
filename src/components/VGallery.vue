@@ -34,7 +34,7 @@ export default {
 @import '../assets/styles/variables.scss';
 
 .gallery {
-    width: $contentWidth;
+    width: auto;
     display: flex;
     margin: 100px auto 0;
 
@@ -69,6 +69,7 @@ export default {
             bottom: 50px;
             left: 50px;
             opacity: 0;
+            font-size: 0;
         }
     }
 
@@ -76,8 +77,76 @@ export default {
         flex: 10;
 
         & span {
+            font-size: 24px;
             opacity: 1;
-            transition: opacity 0.3s ease-in 0.4s;
+            transition: all 0.3s ease-in 0.4s;
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .gallery {
+        & span {
+            bottom: 20px;
+            left: 20px;
+        }
+
+        & .active-slide span {
+            font-size: 20px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery {
+        margin: 80px auto 0;
+
+        &__slide {
+            height: 30vh;
+        }
+
+        & .active-slide span {
+            font-size: 16px;
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .gallery {
+        margin: 50px auto 0;
+
+        &__slide {
+            height: 20vh;
+            margin: 5px;
+
+            & span {
+                bottom: 15px;
+                left: 15px;                
+            }
+        }
+
+        & .active-slide span {
+            font-size: 14px;
+        }
+    }
+}
+
+@media (max-width: 414px) {
+    .gallery {
+        margin: 50px auto 0;
+
+        &__slide {
+            height: 15vh;
+            margin: 3px;
+
+            & span {
+                bottom: 10px;
+                left: 10px;                
+            }
+        }
+
+        & .active-slide span {
+            font-size: 10px;
         }
     }
 }

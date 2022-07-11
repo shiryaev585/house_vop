@@ -57,4 +57,30 @@ export default {
     transform: translate(0, 0);
     opacity: 1;
 }
+
+@media (max-width: 1200px) {
+    .wrapper {
+        width: 80%;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 576px) {
+    .section-title {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 414px) {
+    .section-title {
+        font-size: 24px;
+        width: 260px;
+    }
+}
+
 </style>

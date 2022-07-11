@@ -1,5 +1,6 @@
 import Logo from './Logo';
-import Navbar from './Navbar';
+import VMenu from './VMenu';
+import VMenuMobile from './VMenuMobile';
 import VButton from './VButton';
 import Modal from './Modal';
 import VMouse from './icons/VMouse';
@@ -19,7 +20,8 @@ import VInstagram from './icons/VInstagram';
 
 export default [
     Logo,
-    Navbar,
+    VMenu,
+    VMenuMobile,
     VButton,
     Modal,
     VMouse,

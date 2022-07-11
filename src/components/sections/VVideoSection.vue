@@ -5,8 +5,6 @@
             v-model:isVisible="isModalVisible"
         >
             <iframe 
-                width="840" 
-                height="472.5" 
                 src="https://www.youtube.com/embed/Jd4cILtGiRA?&autoplay=1" 
                 title="YouTube video player" 
                 frameborder="0" 
@@ -16,7 +14,7 @@
     </transition>
     <section class="video">
         <div class="video__top">
-            <div class="video__top-content">
+            <div class="video__top-content wrapper">
                 <div 
                     class="video__top-left"
                     ref="video-left-block"
@@ -103,8 +101,6 @@ export default {
 
         &-content {
             @include centered(space-between);
-            width: $contentWidth;
-            margin: 0 auto;
         }
 
         &-left {
@@ -165,7 +161,7 @@ export default {
         &-number {
             @extend %numberPosition;
             top: 50%;
-            right: -65px;
+            right: -100px;
             transform: translate(-50%, -50%);
         }
 
@@ -177,6 +173,159 @@ export default {
             width: 718px;
             height: 650px;
             margin: 0 auto;
+        }
+    }
+}
+
+.modal iframe {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+@media (max-width: 1200px) {
+    .video {
+        &__top {
+            padding: 130px 0;
+
+            &-content {
+                flex-wrap: wrap;
+            }
+
+            &-left {
+                margin-bottom: 50px;
+            }
+        }
+
+        &__txt {
+            width: auto;
+        }
+
+        .form {
+            &__btn {
+                order: 3;
+                margin-bottom: 35px;
+            }
+
+            &__info {
+                order: 4;
+                margin-bottom: 35px;
+            }
+        }
+
+        &__bottom-number {
+            display: none;
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .video {
+        .form {
+            &__input {
+                width: 30%;
+            }
+            &__btn {
+                width: 30%;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .video {
+        &__top {
+            padding: 100px 0;
+        }
+
+        .form {
+            &__input {
+                width: 40%;
+            }
+            &__btn {
+                width: 44%;
+                order: 4;
+                font-size: 14px;
+            }
+
+            &__info {
+                width: 44%;
+                order: 3;
+            }
+        }
+
+        &__bottom-image {
+            width: 100%;
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .video {
+        .form {
+            &__btn {
+                width: 45.5%;
+            }
+
+            &__info {
+                width: 45.5%;
+            }
+        }
+
+        &__bottom-image {
+            height: 300px;
+        }
+    }
+}
+
+@media (max-width: 414px) {
+    .video {
+        &__top {
+            padding: 50px 0;
+        }
+        
+        .form {
+            &__btn {
+                width: 47%;
+                font-size: 12px;
+            }
+
+            &__info {
+                width: 47%;
+                font-size: 10px;
+            }
+        }
+    }
+}
+
+@media (max-width: 375px) {
+    .video {
+        &__txt {
+            font-size: 14px;
+        }
+        
+        .form {
+            &__btn {
+                font-size: 11px;
+            }
+
+            &__info {
+                font-size: 8px;
+            }
+        }
+    }
+}
+
+@media (max-width: 320px) {
+    .video {
+        .form {
+            &__btn {
+                line-height: 12px;
+            }
         }
     }
 }

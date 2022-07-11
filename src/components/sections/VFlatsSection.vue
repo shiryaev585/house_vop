@@ -1,7 +1,7 @@
 <template>
     <section class="flats">
-        <div class="wrapper">
-        <div class="flats__number">III</div>
+        <div class="wrapper flats__wrapper">
+            <div class="flats__number">III</div>
             <h3 
                 class="flats__title section-title"
                 ref="flats-title"
@@ -43,15 +43,24 @@ export default {
 
     &__number {
         @extend %numberPosition;
-       top: 30%;
+        top: 30%;
         left: 20%;
         transform: translate(-50%, -50%);
     }
 
     &__title {
-        transform: translate(50%, 0);
+        transform: translate(20%, 0);
         opacity: 0;
         transition: all 0.7s ease;
+    }
+}
+
+@media (max-width: 768px) {
+    .flats {
+        &__number {
+            left: 50%;
+            font-size: 250px;
+        }
     }
 }
 </style>

@@ -38,4 +38,17 @@ export default {
         text-transform: uppercase;
     }
 }
+
+@media (max-width: 576px) {
+    .logo {
+        &__link {
+            font-size: 28px;
+            line-height: 28px;
+        }
+
+        &__txt {
+            font-size: 9px;
+        }
+    }
+}
 </style>

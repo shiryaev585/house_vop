@@ -55,16 +55,23 @@ export default {
         position: relative;
         margin: auto;
         background: $bg;
-        border-radius: 5px;
-        min-height: 50px;
-        min-width: 300px;
-        padding: 50px;
+
+        width: 100%;
+        padding-top: 56.25%;
 
         &-close {
             position: absolute;
-            top: 15px;
-            right: 15px;
+            top: -30px;
+            right: 10px;
         }
     }
 }
+
+@media (min-width: 1024px) {
+    .modal__content {
+        width: 80%;
+        padding-top: 45%;
+    }
+}
+
 </style>

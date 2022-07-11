@@ -3,7 +3,10 @@
         <div class="header__top">
             <div class="header__top-content">
                 <v-logo />
-                <navbar />
+                <nav class="navbar">
+                    <v-menu />
+                    <v-mobile-menu />
+                </nav>
             </div>
         </div>
         <div class="header__center">
@@ -92,7 +95,7 @@ export default {
         }
     }
 
-    & .navbar__list {
+    & .menu__list {
         display: flex;
 
         & li {
@@ -128,6 +131,10 @@ export default {
         margin: 200px auto 74px;
         @include centered(center);
 
+        & span {
+            font-size: 18px;
+        }
+
         &-address,
         &-phone {
             @include centered(center);
@@ -135,13 +142,13 @@ export default {
 
         &-address {
             margin-right: 100px;
-            transform: translate(-200%, 0);
+            transform: translate(-50%, 0);
             opacity: 0;
             transition: all 0.7s ease;
         }
 
         &-phone {
-            transform: translate(200%, 0);
+            transform: translate(50%, 0);
             opacity: 0;
             transition: all 0.7s ease;
         }
@@ -152,9 +159,96 @@ export default {
     }
 }
 
-.active {
-    transform: translate(0, 0);
-    opacity: 1;
+@media (max-width: 1200px) {
+    .header {
+        &__top-content {
+            width: 80%;
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .header {
+        & .menu__list {
+            display: none;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .header__bottom-address {
+        transform: translate(-10%, 0);
+    }
+
+    .header__bottom-phone {
+        transform: translate(10%, 0);
+    }
+}
+
+@media (max-width: 576px) {
+    .header {
+        height: 700px;
+
+        &__center {
+            width: auto;
+            padding-top: 130px;
+
+            &-title {
+                font-size: 28px;
+                width: 320px;
+                margin: auto;
+            }
+
+            &-btn {
+                margin: 130px auto 0;
+            }
+        }
+
+        &__bottom {
+            margin: 130px auto 50px;
+
+            & span {
+                font-size: 14px;
+            }
+
+            &-address {
+                margin-right: 50px;
+            }
+        }
+    }
+}
+
+@media (max-width: 414px) {
+    .header {
+        &__bottom-address {
+            margin-right: 20px;
+        }
+
+        &__bottom svg {
+            margin-right: 10px;
+        }
+
+        &__bottom span {
+            font-size: 12px;
+        }
+    }
+}
+
+@media (max-width: 360px) {
+    .header {
+        &__center-title {
+            font-size: 26px;
+            width: 300px;
+        }
+
+        &__bottom {
+            flex-direction: column;
+
+            &-address {
+                margin-bottom: 12px;
+            }
+        }
+    }
 }
 
 </style>

@@ -1,10 +1,10 @@
 <template>
     <footer class="footer">
         <div class="wrapper footer__wrapper">
-            <v-logo />
-            <navbar />
-            <navbar />
-            <div class="contacts">
+            <v-logo class="footer__item"/>
+            <v-menu class="footer__item"/>
+            <v-menu class="footer__item"/>
+            <div class="contacts footer__item">
                 <ul>
                     <li class="contacts__item">Адрес: Наб. реки Фонтанки 10-15</li>
                     <li class="contacts__item">Телефон: 8 (812) 123-45-67</li>
@@ -51,6 +51,58 @@ export default {
         line-height: 16px;
         letter-spacing: 0.05em;
         color: #FFFFFF;
+    }
+}
+
+@media (max-width: 1200px) {
+    .footer {
+        &__wrapper {
+            width: 80% !important;
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .footer {
+        &__wrapper {
+            flex-wrap: wrap;
+        }
+
+        &__item {
+            width: 40%;
+            margin-bottom: 50px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .footer {
+        & .menu__list-link,
+        & .contacts__item {
+            font-size: 13px;
+        }
+
+        & li {
+            margin-bottom: 10px;
+        }
+    }
+}
+
+@media (max-width: 540px) {
+    .footer {
+        &__wrapper {
+            flex-direction: column;
+        }
+
+        &__item {
+            width: 100%;
+        }
+    } 
+}
+
+@media (max-width: 414px) {
+    .footer__wrapper {
+        padding: 50px 0 0;
     }
 }
 </style>

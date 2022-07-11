@@ -53,7 +53,7 @@ export default {
 
     &__title {
         width: $contentWidth;
-        transform: translate(50%, 0);
+        transform: translate(20%, 0);
         opacity: 0;
         transition: all 0.7s ease;
     }
@@ -61,6 +61,32 @@ export default {
     &__map {
         width: $contentWidth;
         margin: 100px auto 0;
+    }
+}
+
+@media (max-width: 1200px) {
+    .location {
+        padding: 130px 0;
+
+        &__map {
+            width: 100%;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .location {
+        padding: 100px 0;
+
+        &__map {
+            margin: 50px auto 0;
+        }
+    }
+}
+
+@media (max-width: 414px) {
+    .location {
+        padding: 50px 0;
     }
 }
 </style>
