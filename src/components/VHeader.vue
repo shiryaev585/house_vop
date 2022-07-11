@@ -67,8 +67,8 @@ export default {
 }
 </script>
 <style lang="scss">
-@import '../assets/styles/variables.scss'; 
-@import '../assets/styles/mixinsAndTemplates.scss';
+@import '@/assets/styles/variables.scss'; 
+@import '@/assets/styles/mixinsAndTemplates.scss';
 
 .header {
     background-image: url('../assets/images/header-bg.png');

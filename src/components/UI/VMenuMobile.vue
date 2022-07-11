@@ -1,66 +1,93 @@
 <template>
-    <input id="menu-toggle" type="checkbox" />
-    <label class='menu-button-container' for="menu-toggle">
-        <div class='menu-button'></div>
-    </label>
-    <ul class="mobile-menu">
-        <li>
-            <router-link
-                class="menu__list-link" 
-                to="/about"
-            >
-                О комплексе
-            </router-link>
-        </li>
-        <li>
-            <router-link
-                class="menu__list-link" 
-                to="/location"
-            >
-                Район
+    <div class="mobile-menu-wrapper">
+        <input id="menu-toggle" type="checkbox" />
+        <label class='menu-button-container' for="menu-toggle">
+            <div class='menu-button' @click="toggleMobMenu"></div>
+        </label>
+        <ul class="mobile-menu" ref="mobile-menu">
+            <li>
+                <router-link
+                    class="menu__list-link" 
+                    to="/about"
+                >
+                    О комплексе
                 </router-link>
-        </li>
-        <li>
-            <router-link
-                class="menu__list-link" 
-                to="/catalog"
-            >
-                Каталог квартир
-            </router-link>
-        </li>
-        <li>
-            <router-link
-                class="menu__list-link" 
-                to="/mortgage"
-            >
-                Ипотека
-            </router-link>
-        </li>
-        <li>
-            <router-link
-                class="menu__list-link" 
-                to="/contacts"
-            >
-                Контакты
-            </router-link>
-        </li>
-    </ul>
+            </li>
+            <li>
+                <router-link
+                    class="menu__list-link" 
+                    to="/location"
+                >
+                    Район
+                    </router-link>
+            </li>
+            <li>
+                <router-link
+                    class="menu__list-link" 
+                    to="/catalog"
+                >
+                    Каталог квартир
+                </router-link>
+            </li>
+            <li>
+                <router-link
+                    class="menu__list-link" 
+                    to="/mortgage"
+                >
+                    Ипотека
+                </router-link>
+            </li>
+            <li>
+                <router-link
+                    class="menu__list-link" 
+                    to="/contacts"
+                >
+                    Контакты
+                </router-link>
+            </li>
+        </ul>
+    </div>
+
 </template>
 <script>
 export default {
     name: 'v-mobile-menu',
+    methods: {
+        toggleMobMenu() {
+            this.$refs['mobile-menu'].classList.toggle('active-menu');
+        },
+    },
 }
 </script>
 <style lang="scss">
 @import '@/assets/styles/variables.scss'; 
+@import '@/assets/styles/mixinsAndTemplates.scss';
 
 .mobile-menu {
-    display: none;
-}
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    background-color: $bg;
+    @include centered(center);
+    flex-direction: column;
+    height: 0;
+    opacity: 0;
+    transition: all 0.4s ease;
 
-.mobile-menu > li {
-    margin: 0 1rem;
-    overflow: hidden;
+    & .menu__list-link {
+        font-size: 0;
+        transition: all 0.4s ease;
+    }
+}
+.active-menu {
+    height: 200px;
+    opacity: 1;
+
+    & .menu__list-link {
+        padding: 10px;
+        font-size: 18px;
+    }
 }
 
 .menu-button-container {
@@ -115,48 +142,10 @@ export default {
 }
 
 @media (max-width: 992px) {
-    .mobile-menu {
-        display: block;
-    }
     .menu-button-container {
         display: flex;
-    }
-
-    .mobile-menu {
-        position: absolute;
-        top: 0;
-        left: 0;
-        flex-direction: column;
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-    }
-
-    #menu-toggle ~ .mobile-menu li {
-        height: 0;
-        margin: 0;
-        padding: 0;
-        border: 0;
-        transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
-    }
-
-    #menu-toggle:checked ~ .mobile-menu li {
-        height: auto;
-        padding: 12px;
-        transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
-    }
-
-    .mobile-menu > li {
-        display: flex;
-        justify-content: center;
-        margin: 0;
-        padding: 0.5em 0;
-        width: 100%;
-        color: white;
-        background-color: $bg;
-    }
-    .mobile-menu > li:not(:last-child) {
-        border-bottom: 1px solid #444;
+        margin-left: auto;
+        margin-top: 50%;
     }
 }
 </style>
