@@ -83,4 +83,11 @@ export default {
     }
 }
 
+@media (max-width: 320px) {
+    .section-title {
+        font-size: 22px;
+        width: 200px;
+    }
+}
+
 </style>

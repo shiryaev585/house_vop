@@ -1,7 +1,6 @@
 <template>
     <section class="location">
         <div class="wrapper">
-            <div class="location__number">V</div>
             <h3 
                 class="location__title section-title"
                 ref="location-title"
@@ -28,10 +27,8 @@ export default {
                     ? element.classList.add('active')
                     : element.classList.remove('active');
         };
-        Object.values(this.$refs).forEach((ref) => {
-            const observer = new IntersectionObserver(callback, { threshold: 0 });
-            observer.observe(ref);
-        });
+        const observer = new IntersectionObserver(callback, { threshold: 0 });
+        observer.observe(this.$refs['location-title']);
     },
 }
 </script>
@@ -43,13 +40,6 @@ export default {
     background-color: $bg;
     padding: 180px 0;
     position: relative;
-
-    &__number {
-        @extend %numberPosition;
-        top: 45%;
-        left: 20%;
-        transform: translate(-50%, -50%);
-    }
 
     &__title {
         width: $contentWidth;

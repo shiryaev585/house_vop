@@ -26,10 +26,8 @@ export default {
                     ? element.classList.add('active')
                     : element.classList.remove('active');
         };
-        Object.values(this.$refs).forEach((ref) => {
-            const observer = new IntersectionObserver(callback, { threshold: 0 });
-            observer.observe(ref);
-        });
+        const observer = new IntersectionObserver(callback, { threshold: 0 });
+        observer.observe(this.$refs['flats-title']);
     },
 }
 </script>
