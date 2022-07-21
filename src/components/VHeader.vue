@@ -11,12 +11,13 @@
         </div>
         <div class="header__center">
             <h1 ref="title" class="header__center-title">Жилой комплекс в историческом центре</h1>
-            <v-button 
-                class="header__center-btn" 
-                @click="scrollToNextSection"
-            >
-                <v-mouse />
-            </v-button>
+                <v-button 
+                    class="header__center-btn" 
+                    @click="scrollToNextSection"
+                >
+                    <v-arrow-down class="header__center-arrow" />       
+                    <v-mouse />
+                </v-button>
         </div>
         <div class="header__bottom">
             <div ref="address" class="header__bottom-address">
@@ -122,8 +123,22 @@ export default {
             transition: all 0.7s ease;
         }
 
+        // &-wrapper-btn {
         &-btn {
             margin: 100px auto 0;
+            @include centered(center);
+
+            &:hover .header__center-arrow {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        &-arrow {
+            margin-right: -15px;
+            transform: translateY(-40px);
+            opacity: 0;
+            transition: all 0.2s linear;
         }
     }
 

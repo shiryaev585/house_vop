@@ -17,6 +17,8 @@ import VYoutube from './icons/VYoutube';
 import VVK from './icons/VVK';
 import VFB from './icons/VFB';
 import VInstagram from './icons/VInstagram';
+import VArrowDown from './icons/VArrowDown';
+import VArrowUp from './icons/VArrowUp';
 
 export default [
     Logo,
@@ -38,4 +40,6 @@ export default [
     VVK,
     VFB,
     VInstagram,
+    VArrowDown,
+    VArrowUp,
 ];

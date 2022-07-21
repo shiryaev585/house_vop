@@ -1,7 +1,19 @@
 <template>
+    <div ref="top"></div>
     <v-header />
     <router-view></router-view>
     <v-footer />
+    <div 
+        class="up-btn-wrapper"
+        ref="up-btn-wrapper"
+    >
+        <v-button 
+            class="up-btn"
+            @click="scrollToTop"
+        >
+            <v-arrow-up />
+        </v-button>
+    </div>
 </template>
 
 <script>
@@ -13,10 +25,35 @@ export default {
         VHeader,
         VFooter,
     },
-} 
+    methods: {
+        setScroll(element, behavior = 'smooth') {
+            const scrollTop = window.pageYOffset || element.scrollTop;
+            const finalOffset = element.getBoundingClientRect().top + scrollTop;
+
+            window.scrollTo({
+                top: finalOffset,
+                behavior: behavior || 'auto',
+            });
+        },
+        scrollToTop() {
+            this.setScroll(this.$refs.top);
+        },
+        scrollHandler() {
+            window.pageYOffset > 300
+                ? this.$refs['up-btn-wrapper'].classList.add('show-btn')
+                : this.$refs['up-btn-wrapper'].classList.remove('show-btn');
+        },
+
+    },
+    mounted() {
+        window.addEventListener('scroll', this.scrollHandler);
+    },
+}
 </script>
 
 <style lang="scss">
+@import '@/assets/styles/variables.scss'; 
+
 body,
 h1,
 h2,
@@ -66,6 +103,19 @@ select {
 
 a {
     text-decoration: none;
+}
+
+.up-btn-wrapper {
+    position: fixed;
+    bottom: 3%;
+    right: 3%;
+    z-index: 100;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.show-btn {
+    opacity: 1;
 }
 
 </style>

@@ -116,7 +116,7 @@ export default {
         margin: 50px auto 0;
 
         &__slide {
-            height: 20vh;
+            height: 30vh;
             margin: 5px;
 
             & span {
@@ -136,7 +136,7 @@ export default {
         margin: 50px auto 0;
 
         &__slide {
-            height: 15vh;
+            height: 25vh;
             margin: 3px;
 
             & span {
