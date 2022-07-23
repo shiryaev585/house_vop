@@ -15,7 +15,6 @@
                     class="header__center-btn" 
                     @click="scrollToNextSection"
                 >
-                    <v-arrow-down class="header__center-arrow" />       
                     <v-mouse />
                 </v-button>
         </div>
@@ -117,28 +116,14 @@ export default {
             line-height: 48px;
             color: $accent;
             text-align: center;
-
             transform: translate(0, 200%);
             opacity: 0;
             transition: all 0.7s ease;
         }
 
-        // &-wrapper-btn {
         &-btn {
             margin: 100px auto 0;
             @include centered(center);
-
-            &:hover .header__center-arrow {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        &-arrow {
-            margin-right: -15px;
-            transform: translateY(-40px);
-            opacity: 0;
-            transition: all 0.2s linear;
         }
     }
 

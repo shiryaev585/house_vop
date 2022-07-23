@@ -5,7 +5,7 @@
     <v-footer />
     <div 
         class="up-btn-wrapper"
-        ref="up-btn-wrapper"
+        :class="{['show-btn']: isScrolled}"
     >
         <v-button 
             class="up-btn"
@@ -25,6 +25,11 @@ export default {
         VHeader,
         VFooter,
     },
+    data() {
+        return {
+            isScrolled: false,
+        }
+    },
     methods: {
         setScroll(element, behavior = 'smooth') {
             const scrollTop = window.pageYOffset || element.scrollTop;
@@ -40,8 +45,8 @@ export default {
         },
         scrollHandler() {
             window.pageYOffset > 300
-                ? this.$refs['up-btn-wrapper'].classList.add('show-btn')
-                : this.$refs['up-btn-wrapper'].classList.remove('show-btn');
+                ? this.isScrolled = true
+                : this.isScrolled = false;
         },
 
     },
