@@ -1,22 +1,45 @@
 <template>
     <div class="gallery">
-        <div class="gallery__slide first-slide" @click="setActiveClass">
-            <span>Лофт — 1 этажа</span>
-        </div>
-        <div class="gallery__slide second-slide active-slide" @click="setActiveClass">
-            <span>Лофт — 2 этажа</span>
-        </div>
-        <div class="gallery__slide third-slide" @click="setActiveClass">
-            <span>Лофт — 3 этажа</span>
-        </div>
-        <div class="gallery__slide fourth-slide" @click="setActiveClass">
-            <span>Лофт — 4 этажа</span>
+        <div
+            v-for="image in images"
+            :key="image.id"
+            class="gallery__slide" @click="setActiveClass"
+            :class="{
+                'first-slide': image.id === 1,
+                'second-slide active-slide': image.id === 2,
+                'third-slide': image.id === 3,
+                'fourth-slide': image.id === 4,
+                }"
+        >
+            <span>{{ image.text }}</span>
         </div>
     </div>
 </template>
 <script>
 export default {
     name: 'v-gallery',
+    data() {
+        return {
+            images: [
+                {
+                    id: 1,
+                    text: 'Лофт — 1 этажа',
+                },
+                {
+                    id: 2,
+                    text: 'Лофт — 2 этажа',
+                },
+                {
+                    id: 3,
+                    text: 'Лофт — 3 этажа',
+                },
+                {
+                    id: 4,
+                    text: 'Лофт — 4 этажа',
+                },
+            ]
+        };
+    },
     methods: {
         setActiveClass({ target }) {
             const slides = document.querySelectorAll('.gallery__slide');

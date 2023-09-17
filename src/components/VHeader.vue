@@ -1,5 +1,5 @@
 <template>
-    <header class="header">
+    <header v-lazy:background-image="img" class="header">
         <div class="header__top">
             <div class="header__top-content">
                 <v-logo />
@@ -33,10 +33,16 @@
 </template>
 <script>
 import VMouse from './UI/icons/VMouse.vue';
+import path from '../assets/images/header-bg.webp';
 
 export default {
     components: { 
         VMouse,
+    },
+    data() {
+        return {
+            img: path,
+        };
     },
     methods: {
         setScroll(element, behavior = 'smooth') {
@@ -71,7 +77,7 @@ export default {
 @import '@/assets/styles/mixinsAndTemplates.scss';
 
 .header {
-    background-image: url('../assets/images/header-bg.png');
+    // background-image: url('../assets/images/header-bg.webp');
     background-repeat: no-repeat;
     background-size: cover;
     height: 840px;
